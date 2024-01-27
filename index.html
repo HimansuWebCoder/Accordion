@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add to Cart Feature Building</title>
+    <style>
+      body {
+        background-color: rgb(236, 236, 236);
+      }
+
+      .cart-item {
+        width: 500px;
+        height: 100px;
+        background-color: white;
+        border-radius: 10px;
+        color: black;
+        text-align: center;
+        display: none;
+        border-top: 1px solid rgb(221, 221, 221);
+        transition: all linear 2s;
+      }
+
+      .cart-item2 {
+        width: 500px;
+        height: 100px;
+        background-color: white;
+        border-radius: 10px;
+        color: black;
+        text-align: center;
+        display: none;
+        border-top: 1px solid rgb(212, 212, 212);
+        transition: all linear 2s;
+      }
+
+      .show-item {
+        width: 500px;
+        height: auto;
+        background-color: white;
+        color: blue;
+        font-weight: bold;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 30px;
+        text-align: center;
+        padding: 4px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 5px;
+        box-shadow: 2px 4px 5px 5px rgb(204, 204, 204);
+      }
+
+      /* #one:hover .cart-item {
+		display: block;
+	  }
+
+	  #two:hover .cart-item2 {
+		display: block;
+	  } */
+
+      .toggle {
+        display: block;
+      }
+
+      .container {
+        width: 800px;
+        height: 800px;
+        margin: auto;
+        margin-top: 40px;
+      }
+
+      /* hr {
+		border: 1px solid rgb(216, 215, 215);
+	  } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="show-item" id="one">
+        <p>Coding Greeting</p>
+        <div class="cart-item">Hello Coders Enjoy Coding Stuff!</div>
+      </div>
+
+      <div class="show-item" id="two">
+        <p>Programming Greeting</p>
+        <div class="cart-item2">Hello Programmers Enjoy Programming Stuff!</div>
+      </div>
+    </div>
+
+    <script>
+      const cartItem = document.querySelector(".cart-item");
+      const cartItem2 = document.querySelector(".cart-item2");
+      const one = document.querySelector("#one");
+      const two = document.querySelector("#two");
+
+      function refactor(e) {
+        const style = e.currentTarget.id;
+        const isContentClicked =
+          e.target.classList.contains("cart-item") ||
+          e.target.classList.contains("cart-item2");
+
+        if (style == "one" && !isContentClicked) {
+          cartItem.classList.toggle("toggle");
+          console.log("one");
+        } else if (style == "two" && !isContentClicked) {
+          cartItem2.classList.toggle("toggle");
+          console.log("two");
+        }
+      }
+
+      one.addEventListener("click", refactor);
+      two.addEventListener("click", refactor);
+    </script>
+  </body>
+</html>
